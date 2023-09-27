@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS category(
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(50)NOT NULL,
+    description TEXT NOT NULL
+);
