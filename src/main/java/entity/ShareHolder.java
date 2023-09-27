@@ -1,24 +1,24 @@
 package entity;
 
 public class ShareHolder{
-    private Integer id;
+    private Integer shareId;
     private String name;
     private Integer phoneNumber;
     private String nationalCode;
 
     public ShareHolder(Integer id, String name, Integer phoneNumber, String nationalCode) {
-        this.id = id;
+        this.shareId = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.nationalCode = nationalCode;
     }
 
     public Integer getId() {
-        return id;
+        return shareId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.shareId = id;
     }
 
     public String getName() {
