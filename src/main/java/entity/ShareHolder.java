@@ -3,10 +3,10 @@ package entity;
 public class ShareHolder{
     private Integer shareId;
     private String name;
-    private Integer phoneNumber;
+    private String phoneNumber;
     private String nationalCode;
 
-    public ShareHolder(Integer shareId, String name, Integer phoneNumber, String nationalCode) {
+    public ShareHolder(Integer shareId, String name, String phoneNumber, String nationalCode) {
         this.shareId = shareId;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -29,11 +29,11 @@ public class ShareHolder{
         this.name = name;
     }
 
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
