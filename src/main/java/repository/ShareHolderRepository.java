@@ -20,7 +20,7 @@ public class ShareHolderRepository {
         String add = "INSERT INTO shareholder(name,phoneNumber,nationalCode)VALUES(?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(add);
         preparedStatement.setString(1, shareHolder.getName());
-        preparedStatement.setInt(2, shareHolder.getPhoneNumber());
+        preparedStatement.setString(2, shareHolder.getPhoneNumber());
         preparedStatement.setString(3, shareHolder.getNationalCode());
         int result = preparedStatement.executeUpdate();
         return result;
