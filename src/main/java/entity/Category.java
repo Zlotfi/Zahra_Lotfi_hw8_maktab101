@@ -3,12 +3,12 @@ package entity;
 public class Category {
     private Integer id;
     private String name;
-    private String discription;
+    private String description;
 
     public Category(Integer id, String name, String discription) {
         this.id = id;
         this.name = name;
-        this.discription = discription;
+        this.description = discription;
     }
 
     public Integer getId() {
@@ -27,11 +27,11 @@ public class Category {
         this.name = name;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setDescription(String discription) {
+        this.description = discription;
     }
 }
