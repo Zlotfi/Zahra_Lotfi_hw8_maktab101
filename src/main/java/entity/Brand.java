@@ -1,24 +1,24 @@
 package entity;
 
 public class Brand{
-    private Integer id;
+    private Integer brandId;
     private String name;
     private String website;
     private String description;
 
     public Brand(Integer id, String name, String website, String description) {
-        this.id = id;
+        this.brandId = id;
         this.name = name;
         this.website = website;
         this.description = description;
     }
 
     public Integer getId() {
-        return id;
+        return brandId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.brandId = id;
     }
 
     public String getName() {
