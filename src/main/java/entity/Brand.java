@@ -6,8 +6,8 @@ public class Brand{
     private String website;
     private String description;
 
-    public Brand(Integer id, String name, String website, String description) {
-        this.brandId = id;
+    public Brand(Integer brandId, String name, String website, String description) {
+        this.brandId = brandId;
         this.name = name;
         this.website = website;
         this.description = description;
