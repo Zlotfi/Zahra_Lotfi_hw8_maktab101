@@ -6,8 +6,8 @@ public class ShareHolder{
     private Integer phoneNumber;
     private String nationalCode;
 
-    public ShareHolder(Integer id, String name, Integer phoneNumber, String nationalCode) {
-        this.shareId = id;
+    public ShareHolder(Integer shareId, String name, Integer phoneNumber, String nationalCode) {
+        this.shareId = shareId;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.nationalCode = nationalCode;
