@@ -1,6 +1,6 @@
 package entity;
 
-public class ShareHolder {
+public class ShareHolder{
     private Integer id;
     private String name;
     private Integer phoneNumber;
