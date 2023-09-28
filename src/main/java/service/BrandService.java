@@ -5,20 +5,40 @@ import entity.User;
 import repository.BrandRepository;
 
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class BrandService {
 
     private final BrandRepository brandRepository = new BrandRepository();
+    Scanner scanner = new Scanner(System.in);
 
     public BrandService() throws SQLException {
     }
 
-    public void register() throws SQLException {
-        Brand brand = new Brand(null,"zara","www.zara.com","The Zara brand is one of the largest brands of women's, men's and children's clothing in the world, which began its serious activity in Spain in 1975. This brand does not spend any money on advertising and marketing, and from the very beginning, it has spent all its energy and capital on opening different stores in all parts of the world.");
+    public void register(Brand brand) throws SQLException {
         int result = brandRepository.save(brand);
         if(result != 0)
             System.out.println(brand.getName() + " successfully added to database");
         else
             System.out.println("OOps! :(");
     }
+
+    public void changeBrand(int id,String website,String description) throws SQLException {
+        System.out.println("Please enter your new name:");
+        String name = scanner.nextLine();
+        int result = brandRepository.updateBrand(id,name,website,description);
+        if(result != 0)
+            System.out.println("successfully edited to database");
+        else
+            System.out.println("OOps! :(");
+    }
+
+    public void delete(int id) throws SQLException {
+        int result = brandRepository.deleteBrand(id);
+        if(result != 0)
+            System.out.println("successfully deleted from database");
+        else
+            System.out.println("OOps! :(");
+    }
+
 }
