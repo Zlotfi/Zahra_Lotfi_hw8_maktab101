@@ -57,7 +57,7 @@ public class Menu {
         System.out.println("Enter your password:");
         String password = scanner.nextLine();
         User user = userService.find(username);
-        if (user == null && !user.getPassword().equals(password))
+        if (user != null && !user.getPassword().equals(password))
             System.out.println("you enter a username and password incorrect");
         else {
             System.out.println("============================================");
