@@ -21,7 +21,7 @@ public class ProductRepository {
         String add = "INSERT INTO product(name,createdate)VALUES(?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(add);
         preparedStatement.setString(1, product.getName());
-        preparedStatement.setDate(2, (Date) product.getCreateDate());
+        preparedStatement.setString(2, product.getCreateDate());
         int result = preparedStatement.executeUpdate();
         return result;
     }
