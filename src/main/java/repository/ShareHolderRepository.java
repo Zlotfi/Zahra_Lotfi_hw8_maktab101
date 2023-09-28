@@ -36,4 +36,12 @@ public class ShareHolderRepository {
         int result = preparedStatement.executeUpdate();
         return result;
     }
+
+    public int deleteShareHolder(int shareid) throws SQLException {
+        String query = "DELETE FROM shareholder WHERE shareid = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1,shareid);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
 }
