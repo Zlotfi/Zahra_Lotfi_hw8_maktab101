@@ -25,4 +25,22 @@ public class ProductRepository {
         int result = preparedStatement.executeUpdate();
         return result;
     }
+
+    public int updateProduct(int id,String name,String createdate) throws SQLException {
+        String query = "UPDATE product SET name = ?,createdate = ? WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1,name);
+        preparedStatement.setString(2,createdate);
+        preparedStatement.setInt(3,id);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
+
+    public int deleteProduct(int id) throws SQLException {
+        String query = "DELETE FROM product WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1,id);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
 }
