@@ -23,9 +23,15 @@ public class BrandService {
             System.out.println("OOps! :(");
     }
 
-    public void changeBrand(int id,String website,String description) throws SQLException {
+    public void changeBrand(int id) throws SQLException {
         System.out.println("Please enter your new name:");
         String name = scanner.nextLine();
+
+        System.out.println("Please enter your new website:");
+        String website = scanner.nextLine();
+
+        System.out.println("Please enter your new description:");
+        String description = scanner.nextLine();
         int result = brandRepository.updateBrand(id,name,website,description);
         if(result != 0)
             System.out.println("successfully edited to database");
