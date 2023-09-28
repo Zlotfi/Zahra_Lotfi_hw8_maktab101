@@ -24,31 +24,23 @@ public class UserService {
             System.out.println("OOps! :(");
     }
 
-    public void find() throws SQLException {
-        System.out.println("please enter your username:");
-        String username = scanner.nextLine();
-        System.out.println("please enter your password:");
-        String password = scanner.nextLine();
-
+    public User find(String username) throws SQLException {
         User user = userRepository.login(username);
-        if ((user != null) && user.getPassword().equals(password))
-            System.out.println("login successfully");
-        else
-            System.out.println("Bad Credentials");
+        return user;
     }
 
-    public void changeName() throws SQLException {
+    public void changeName(int id) throws SQLException {
         System.out.println("Please enter your new name:");
         String name = scanner.nextLine();
-        int result = userRepository.updateName(name);
+        int result = userRepository.updateName(name,id);
         if(result != 0)
             System.out.println("successfully edited to database");
         else
             System.out.println("OOps! :(");
     }
 
-    public void delete() throws SQLException {
-        int result = userRepository.delete(2);
+    public void delete(int id) throws SQLException {
+        int result = userRepository.delete(id);
         if(result != 0)
             System.out.println("successfully deleted from database");
         else
