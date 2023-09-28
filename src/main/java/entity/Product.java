@@ -1,21 +1,23 @@
 package entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Product {
     private Integer id;
     private String name;
-    private Date createDate;
+    private String createDate;
     private Integer categoryId;
     private Integer brandId;
 
-    public Product(Integer id, String name, Date createDate, Integer categoryId, Integer brandId) {
+    public Product(Integer id, String name, String createDate, Integer categoryId, Object o) {
         this.id = id;
         this.name = name;
         this.createDate = createDate;
         this.categoryId = categoryId;
         this.brandId = brandId;
     }
+
+
 
     public Integer getId() {
         return id;
@@ -33,11 +35,11 @@ public class Product {
         this.name = name;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 
