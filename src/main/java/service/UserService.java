@@ -3,6 +3,8 @@ package service;
 import entity.User;
 import repository.UserRepository;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -42,6 +44,14 @@ public class UserService {
         int result = userRepository.updateName(name);
         if(result != 0)
             System.out.println("successfully edited to database");
+        else
+            System.out.println("OOps! :(");
+    }
+
+    public void delete() throws SQLException {
+        int result = userRepository.delete(2);
+        if(result != 0)
+            System.out.println("successfully deleted from database");
         else
             System.out.println("OOps! :(");
     }
