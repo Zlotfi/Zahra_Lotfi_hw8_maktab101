@@ -39,4 +39,12 @@ public class ShareHolderService {
         else
             System.out.println("OOps! :(");
     }
+
+    public void delete(int shareid) throws SQLException {
+        int result = shareHolderRepository.deleteShareHolder(shareid);
+        if(result != 0)
+            System.out.println("successfully deleted from database");
+        else
+            System.out.println("OOps! :(");
+    }
 }
