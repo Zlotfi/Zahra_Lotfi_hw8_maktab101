@@ -2,8 +2,10 @@ package utility;
 
 import connection.JdbcConnection;
 import repository.BrandRepository;
+import repository.CategoryRepository;
 import repository.UserRepository;
 import service.BrandService;
+import service.CategoryService;
 import service.UserService;
 
 import java.sql.Connection;
@@ -15,6 +17,8 @@ public class ApplicationContext {
     private static final UserService USER_SERVICE;
     private static final BrandRepository BRAND_REPOSITORY;
     private static final BrandService BRAND_SERVICE;
+    private static final CategoryRepository CATEGORY_REPOSITORY;
+    private static final CategoryService CATEGORY_SERVICE;
 
     static {
         CONNECTION = JdbcConnection.getConnection();
@@ -22,6 +26,8 @@ public class ApplicationContext {
         USER_SERVICE = new UserService(USER_REPOSITORY);
         BRAND_REPOSITORY = new BrandRepository(CONNECTION);
         BRAND_SERVICE = new BrandService(BRAND_REPOSITORY);
+        CATEGORY_REPOSITORY = new CategoryRepository(CONNECTION);
+        CATEGORY_SERVICE = new CategoryService(CATEGORY_REPOSITORY);
     }
 
     public static UserService getUserService(){
@@ -30,5 +36,9 @@ public class ApplicationContext {
 
     public static BrandService getBrandService(){
         return BRAND_SERVICE;
+    }
+
+    public static CategoryService getCategoryService(){
+        return CATEGORY_SERVICE;
     }
 }
