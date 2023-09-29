@@ -3,6 +3,7 @@ package menu;
 import entity.Brand;
 import entity.User;
 import service.*;
+import utility.ApplicationContext;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -10,13 +11,13 @@ import java.util.Scanner;
 public class Menu {
 
     private final Scanner scanner = new Scanner(System.in);
-    private final UserService userService = new UserService();
+    private final UserService userService = ApplicationContext.getUserService();
     private final BrandService brandService = new BrandService();
     private final CategoryService categoryService = new CategoryService();
     private final ProductService productService = new ProductService();
     private final ShareHolderService shareHolderService = new ShareHolderService();
 
-    public Menu() throws SQLException {
+    public Menu(){
     }
 
     public void publicMenu() throws SQLException {
