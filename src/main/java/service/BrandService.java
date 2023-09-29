@@ -9,10 +9,11 @@ import java.util.Scanner;
 
 public class BrandService {
 
-    private final BrandRepository brandRepository = new BrandRepository();
+    private final BrandRepository brandRepository;
     Scanner scanner = new Scanner(System.in);
 
-    public BrandService() throws SQLException {
+    public BrandService(BrandRepository brandRepository){
+        this.brandRepository = brandRepository;
     }
 
     public void register(int id) throws SQLException {
