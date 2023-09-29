@@ -16,18 +16,19 @@ public class ShareHolderRepository {
     public ShareHolderRepository() throws SQLException {
     }
 
-    public int save(ShareHolder shareHolder) throws SQLException {
-        String add = "INSERT INTO shareholder(name,phoneNumber,nationalCode)VALUES(?,?,?)";
+    public int save(int shareid,String name,String phonenumber,String nationalcode) throws SQLException {
+        String add = "INSERT INTO shareholder(shareid,name,phoneNumber,nationalCode)VALUES(?,?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(add);
-        preparedStatement.setString(1, shareHolder.getName());
-        preparedStatement.setString(2, shareHolder.getPhoneNumber());
-        preparedStatement.setString(3, shareHolder.getNationalCode());
+        preparedStatement.setInt(1, shareid);
+        preparedStatement.setString(2, name);
+        preparedStatement.setString(3, phonenumber);
+        preparedStatement.setString(4,nationalcode);
         int result = preparedStatement.executeUpdate();
         return result;
     }
 
     public int updateShareHolder(int shareid,String name,String phonenumber,String nationalcode) throws SQLException {
-        String query = "UPDATE shareholder SET (name = ?,phonenumber = ?,nationalcode = ?) WHERE shareid = ?";
+        String query = "UPDATE shareholder SET name = ?,phonenumber = ?,nationalcode = ? WHERE shareid = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1,name);
         preparedStatement.setString(2,phonenumber);
