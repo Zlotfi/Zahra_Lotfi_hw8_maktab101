@@ -15,7 +15,7 @@ public class Menu {
     private final BrandService brandService = ApplicationContext.getBrandService();
     private final CategoryService categoryService = ApplicationContext.getCategoryService();
     private final ProductService productService = ApplicationContext.getProductService();
-    private final ShareHolderService shareHolderService = new ShareHolderService();
+    private final ShareHolderService shareHolderService = ApplicationContext.getShareHolderService();
 
     public Menu(){
     }
