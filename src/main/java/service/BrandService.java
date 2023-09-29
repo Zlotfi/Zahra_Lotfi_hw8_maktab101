@@ -15,10 +15,18 @@ public class BrandService {
     public BrandService() throws SQLException {
     }
 
-    public void register(Brand brand) throws SQLException {
-        int result = brandRepository.save(brand);
+    public void register(int id) throws SQLException {
+        System.out.println("Please enter your name:");
+        String name = scanner.nextLine();
+
+        System.out.println("please enter your website:");
+        String website = scanner.nextLine();
+
+        System.out.println("please enter your description:");
+        String description = scanner.nextLine();
+        int result = brandRepository.save(id,name,website,description);
         if(result != 0)
-            System.out.println(brand.getName() + " successfully added to database");
+            System.out.println(name + " successfully added to database");
         else
             System.out.println("OOps! :(");
     }
