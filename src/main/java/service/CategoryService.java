@@ -15,11 +15,15 @@ public class CategoryService {
     public CategoryService() throws SQLException {
     }
 
-    public void register() throws SQLException {
-        Category category = new Category(null,"clothing","All kinds of children's, women's and men's clothes");
-        int result = categoryRepository.save(category);
+    public void register(int id) throws SQLException {
+        System.out.println("Please enter your name:");
+        String name = scanner.nextLine();
+
+        System.out.println("Please enter your description:");
+        String description = scanner.nextLine();
+        int result = categoryRepository.save(id,name,description);
         if(result != 0)
-            System.out.println(category.getName() + " successfully added to database");
+            System.out.println(name + " successfully added to database");
         else
             System.out.println("OOps! :(");
     }
