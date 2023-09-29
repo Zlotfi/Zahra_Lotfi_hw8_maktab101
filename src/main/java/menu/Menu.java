@@ -4,6 +4,7 @@ import entity.Brand;
 import entity.User;
 import service.*;
 import utility.ApplicationContext;
+import utility.Validation;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -47,8 +48,15 @@ public class Menu {
         String email = scanner.nextLine();
 
         System.out.println("Enter your password:");
-        String password = scanner.nextLine();
-
+        String password = null;
+        boolean flag = true;
+        while (flag) {
+           password = scanner.nextLine();
+           if (Validation.isValidPassword(password))
+               flag = false;
+           else
+               System.out.println("Please enter a valid password");
+        }
         User user = new User(null, name,username,email,password);
         userService.register(user);
     }
