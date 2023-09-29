@@ -45,8 +45,15 @@ public class Menu {
         String username = scanner.nextLine();
 
         System.out.println("Enter your email:");
-        String email = scanner.nextLine();
-
+        String email = null;
+        boolean flag1 = true;
+        while (flag1) {
+            email = scanner.nextLine();
+            if (Validation.isValidEmailWithRegex(email))
+                flag1 = false;
+            else
+                System.out.println("Please enter a valid email");
+        }
         System.out.println("Enter your password:");
         String password = null;
         boolean flag = true;
