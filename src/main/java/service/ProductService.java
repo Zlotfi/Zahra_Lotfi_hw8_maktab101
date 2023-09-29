@@ -15,10 +15,15 @@ public class ProductService {
     public ProductService() throws SQLException {
     }
 
-    public void register(Product product) throws SQLException {
-        int result = productRepository.save(product);
+    public void register(int id) throws SQLException {
+        System.out.println("Please enter your name:");
+        String name = scanner.nextLine();
+
+        System.out.println("please enter your createdate");
+        String createdate = scanner.nextLine();
+        int result = productRepository.save(id,name,createdate);
         if(result != 0)
-            System.out.println(product.getName() + " successfully added to database");
+            System.out.println(name + " successfully added to database");
         else
             System.out.println("OOps! :(");
     }
