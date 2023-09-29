@@ -10,10 +10,11 @@ import java.util.Scanner;
 
 public class ShareHolderService {
 
-    private final ShareHolderRepository shareHolderRepository = new ShareHolderRepository();
+    private final ShareHolderRepository shareHolderRepository;
     Scanner scanner = new Scanner(System.in);
 
-    public ShareHolderService() throws SQLException {
+    public ShareHolderService(ShareHolderRepository shareHolderRepository){
+        this.shareHolderRepository = shareHolderRepository;
     }
 
     public void register(int shareid) throws SQLException {
