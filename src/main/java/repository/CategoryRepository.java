@@ -15,17 +15,18 @@ public class CategoryRepository {
     public CategoryRepository() throws SQLException {
     }
 
-    public int save(Category category) throws SQLException {
-        String add = "INSERT INTO category(name,description)VALUES(?,?)";
+    public int save(int id,String name,String description) throws SQLException {
+        String add = "INSERT INTO category(id,name,description)VALUES(?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(add);
-        preparedStatement.setString(1, category.getName());
-        preparedStatement.setString(2, category.getDescription());
+        preparedStatement.setInt(1, id);
+        preparedStatement.setString(2, name);
+        preparedStatement.setString(3,description);
         int result = preparedStatement.executeUpdate();
         return result;
     }
 
     public int updateCategory(int id,String name,String description) throws SQLException {
-        String query = "UPDATE users SET (name = ?,description = ?) WHERE (id = ?)";
+        String query = "UPDATE category SET name = ?,description = ? WHERE id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1,name);
         preparedStatement.setString(2,description);
