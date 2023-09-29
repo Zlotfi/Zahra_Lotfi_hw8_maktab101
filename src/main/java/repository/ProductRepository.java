@@ -10,11 +10,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ProductRepository {
+    private final Connection connection;
 
-    JdbcConnection jdbcConnection = new JdbcConnection();
-    Connection connection = jdbcConnection.getConnection();
-
-    public ProductRepository() throws SQLException {
+    public ProductRepository(Connection connection){
+        this.connection = connection;
     }
 
     public int save(int id,String name,String createdate) throws SQLException {
