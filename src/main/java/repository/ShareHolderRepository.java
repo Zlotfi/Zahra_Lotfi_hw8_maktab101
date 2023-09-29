@@ -9,11 +9,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ShareHolderRepository {
+    private final Connection connection;
 
-    JdbcConnection jdbcConnection = new JdbcConnection();
-    Connection connection = jdbcConnection.getConnection();
-
-    public ShareHolderRepository() throws SQLException {
+    public ShareHolderRepository(Connection connection){
+        this.connection = connection;
     }
 
     public int save(int shareid,String name,String phonenumber,String nationalcode) throws SQLException {
