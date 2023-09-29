@@ -16,10 +16,18 @@ public class ShareHolderService {
     public ShareHolderService() throws SQLException {
     }
 
-    public void register(ShareHolder shareHolder) throws SQLException {
-        int result = shareHolderRepository.save(shareHolder);
+    public void register(int shareid) throws SQLException {
+        System.out.println("Please enter your name:");
+        String name = scanner.nextLine();
+
+        System.out.println("Please enter your phoneNumber:");
+        String phoneNumber = scanner.nextLine();
+
+        System.out.println("Please enter your nationalCode:");
+        String nationalCode = scanner.nextLine();
+        int result = shareHolderRepository.save(shareid,name,phoneNumber,nationalCode);
         if(result != 0)
-            System.out.println(shareHolder.getName() + " successfully added to database");
+            System.out.println(name + " successfully added to database");
         else
             System.out.println("OOps! :(");
     }
