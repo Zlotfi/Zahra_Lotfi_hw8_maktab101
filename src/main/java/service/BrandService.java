@@ -3,6 +3,7 @@ package service;
 import entity.Brand;
 import entity.User;
 import repository.BrandRepository;
+import utility.Validation;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -21,8 +22,15 @@ public class BrandService {
         String name = scanner.nextLine();
 
         System.out.println("please enter your website:");
-        String website = scanner.nextLine();
-
+        String website = null;
+        boolean flag = true;
+        while (flag) {
+            website = scanner.nextLine();
+            if (Validation.isValidWebsiteWithRegex(website))
+                flag = false;
+            else
+                System.out.println("Please enter a valid website");
+        }
         System.out.println("please enter your description:");
         String description = scanner.nextLine();
         int result = brandRepository.save(id,name,website,description);
