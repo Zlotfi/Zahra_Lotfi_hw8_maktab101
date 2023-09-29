@@ -17,11 +17,12 @@ public class ProductRepository {
     public ProductRepository() throws SQLException {
     }
 
-    public int save(Product product) throws SQLException {
-        String add = "INSERT INTO product(name,createdate)VALUES(?,?)";
+    public int save(int id,String name,String createdate) throws SQLException {
+        String add = "INSERT INTO product(id,name,createdate)VALUES(?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(add);
-        preparedStatement.setString(1, product.getName());
-        preparedStatement.setString(2, product.getCreateDate());
+        preparedStatement.setInt(1, id);
+        preparedStatement.setString(2, name);
+        preparedStatement.setString(3,createdate);
         int result = preparedStatement.executeUpdate();
         return result;
     }
