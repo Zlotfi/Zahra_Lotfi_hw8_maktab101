@@ -4,6 +4,7 @@ import entity.ShareHolder;
 import entity.User;
 import repository.ShareHolderRepository;
 import repository.UserRepository;
+import utility.Validation;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -22,8 +23,15 @@ public class ShareHolderService {
         String name = scanner.nextLine();
 
         System.out.println("Please enter your phoneNumber:");
-        String phoneNumber = scanner.nextLine();
-
+        String phoneNumber = null;
+        boolean flag = true;
+        while (flag) {
+            phoneNumber = scanner.nextLine();
+            if (Validation.isValidPhoneNumberWithRegex(phoneNumber))
+                flag = false;
+            else
+                System.out.println("Please enter a valid phonenumber");
+        }
         System.out.println("Please enter your nationalCode:");
         String nationalCode = scanner.nextLine();
         int result = shareHolderRepository.save(shareid,name,phoneNumber,nationalCode);
