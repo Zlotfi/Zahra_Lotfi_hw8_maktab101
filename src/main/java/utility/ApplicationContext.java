@@ -1,14 +1,8 @@
 package utility;
 
 import connection.JdbcConnection;
-import repository.BrandRepository;
-import repository.CategoryRepository;
-import repository.ProductRepository;
-import repository.UserRepository;
-import service.BrandService;
-import service.CategoryService;
-import service.ProductService;
-import service.UserService;
+import repository.*;
+import service.*;
 
 import java.sql.Connection;
 
@@ -23,6 +17,8 @@ public class ApplicationContext {
     private static final CategoryService CATEGORY_SERVICE;
     private static final ProductRepository PRODUCT_REPOSITORY;
     private static final ProductService PRODUCT_SERVICE;
+    private static final ShareHolderRepository SHARE_HOLDER_REPOSITORY;
+    private static final ShareHolderService SHARE_HOLDER_SERVICE;
 
     static {
         CONNECTION = JdbcConnection.getConnection();
@@ -34,6 +30,8 @@ public class ApplicationContext {
         CATEGORY_SERVICE = new CategoryService(CATEGORY_REPOSITORY);
         PRODUCT_REPOSITORY = new ProductRepository(CONNECTION);
         PRODUCT_SERVICE = new ProductService(PRODUCT_REPOSITORY);
+        SHARE_HOLDER_REPOSITORY = new ShareHolderRepository(CONNECTION);
+        SHARE_HOLDER_SERVICE = new ShareHolderService(SHARE_HOLDER_REPOSITORY);
     }
 
     public static UserService getUserService(){
@@ -50,5 +48,9 @@ public class ApplicationContext {
 
     public static ProductService getProductService(){
         return PRODUCT_SERVICE;
+    }
+
+    public static ShareHolderService getShareHolderService(){
+        return SHARE_HOLDER_SERVICE;
     }
 }
