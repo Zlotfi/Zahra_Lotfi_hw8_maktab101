@@ -33,7 +33,15 @@ public class ShareHolderService {
                 System.out.println("Please enter a valid phonenumber");
         }
         System.out.println("Please enter your nationalCode:");
-        String nationalCode = scanner.nextLine();
+        String nationalCode = null;
+        boolean flag1 = true;
+        while (flag1) {
+            nationalCode = scanner.nextLine();
+            if (Validation.isValidNationalCodeWithRegex(nationalCode))
+                flag1 = false;
+            else
+                System.out.println("Please enter a valid nationalcode");
+        }
         int result = shareHolderRepository.save(shareid,name,phoneNumber,nationalCode);
         if(result != 0)
             System.out.println(name + " successfully added to database");
