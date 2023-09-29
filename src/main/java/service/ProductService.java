@@ -9,10 +9,11 @@ import java.util.Scanner;
 
 public class ProductService {
 
-    private final ProductRepository productRepository = new ProductRepository();
+    private final ProductRepository productRepository;
     Scanner scanner = new Scanner(System.in);
 
-    public ProductService() throws SQLException {
+    public ProductService(ProductRepository productRepository){
+        this.productRepository = productRepository;
     }
 
     public void register(int id) throws SQLException {
