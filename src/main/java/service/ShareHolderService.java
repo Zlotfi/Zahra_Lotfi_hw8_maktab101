@@ -18,7 +18,7 @@ public class ShareHolderService {
         this.shareHolderRepository = shareHolderRepository;
     }
 
-    public void register(int shareid) throws SQLException {
+    public void register(int id) throws SQLException {
         System.out.println("Please enter your name:");
         String name = scanner.nextLine();
 
@@ -42,7 +42,7 @@ public class ShareHolderService {
             else
                 System.out.println("Please enter a valid nationalcode");
         }
-        int result = shareHolderRepository.save(shareid,name,phoneNumber,nationalCode);
+        int result = shareHolderRepository.save(name,phoneNumber,nationalCode);
         if(result != 0)
             System.out.println(name + " successfully added to database");
         else

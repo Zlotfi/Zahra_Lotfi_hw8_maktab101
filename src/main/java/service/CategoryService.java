@@ -22,7 +22,7 @@ public class CategoryService {
 
         System.out.println("Please enter your description:");
         String description = scanner.nextLine();
-        int result = categoryRepository.save(id,name,description);
+        int result = categoryRepository.save(name,description);
         if(result != 0)
             System.out.println(name + " successfully added to database");
         else

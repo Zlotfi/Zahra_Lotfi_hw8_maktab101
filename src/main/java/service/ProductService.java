@@ -22,7 +22,7 @@ public class ProductService {
 
         System.out.println("please enter your createdate");
         String createdate = scanner.nextLine();
-        int result = productRepository.save(id,name,createdate);
+        int result = productRepository.save(name,createdate);
         if(result != 0)
             System.out.println(name + " successfully added to database");
         else

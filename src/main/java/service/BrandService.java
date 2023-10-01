@@ -33,7 +33,7 @@ public class BrandService {
         }
         System.out.println("please enter your description:");
         String description = scanner.nextLine();
-        int result = brandRepository.save(id,name,website,description);
+        int result = brandRepository.save(name,website,description);
         if(result != 0)
             System.out.println(name + " successfully added to database");
         else

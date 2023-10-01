@@ -15,13 +15,13 @@ public class ShareHolderRepository {
         this.connection = connection;
     }
 
-    public int save(int shareid,String name,String phonenumber,String nationalcode) throws SQLException {
-        String add = "INSERT INTO shareholder(shareid,name,phoneNumber,nationalCode)VALUES(?,?,?,?)";
+    public int save(String name,String phonenumber,String nationalcode) throws SQLException {
+        String add = "INSERT INTO shareholder(name,phoneNumber,nationalCode)VALUES(?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(add);
-        preparedStatement.setInt(1, shareid);
-        preparedStatement.setString(2, name);
-        preparedStatement.setString(3, phonenumber);
-        preparedStatement.setString(4,nationalcode);
+//        preparedStatement.setInt(1, shareid);
+        preparedStatement.setString(1, name);
+        preparedStatement.setString(2, phonenumber);
+        preparedStatement.setString(3,nationalcode);
         int result = preparedStatement.executeUpdate();
         return result;
     }

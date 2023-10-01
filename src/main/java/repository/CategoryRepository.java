@@ -14,12 +14,12 @@ public class CategoryRepository {
         this.connection = connection;
     }
 
-    public int save(int id,String name,String description) throws SQLException {
-        String add = "INSERT INTO category(id,name,description)VALUES(?,?,?)";
+    public int save(String name,String description) throws SQLException {
+        String add = "INSERT INTO category(name,description)VALUES(?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(add);
-        preparedStatement.setInt(1, id);
-        preparedStatement.setString(2, name);
-        preparedStatement.setString(3,description);
+//        preparedStatement.setInt(1, id);
+        preparedStatement.setString(1, name);
+        preparedStatement.setString(2,description);
         int result = preparedStatement.executeUpdate();
         return result;
     }

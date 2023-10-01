@@ -16,12 +16,12 @@ public class ProductRepository {
         this.connection = connection;
     }
 
-    public int save(int id,String name,String createdate) throws SQLException {
-        String add = "INSERT INTO product(id,name,createdate)VALUES(?,?,?)";
+    public int save(String name,String createdate) throws SQLException {
+        String add = "INSERT INTO product(name,createdate)VALUES(?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(add);
-        preparedStatement.setInt(1, id);
-        preparedStatement.setString(2, name);
-        preparedStatement.setString(3,createdate);
+//        preparedStatement.setInt(1, id);
+        preparedStatement.setString(1, name);
+        preparedStatement.setString(2,createdate);
         int result = preparedStatement.executeUpdate();
         return result;
     }
